@@ -7,6 +7,10 @@ jobs:
   tracert:
     runs-on: ubuntu-latest
     steps:
+      - name: Mostrar IP público do runner
+        run: |
+          curl ifconfig.me
+      
       - name: Instalar mtr e traceroute
         run: |
           sudo apt-get update
