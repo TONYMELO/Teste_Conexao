@@ -9,4 +9,6 @@ jobs:
       - name: Rodar mtr até o IP público
         run: |
           sudo apt-get update && sudo apt-get install -y mtr
+          which mtr
+          echo "Rodando mtr:"
           mtr -r -c 10 179.124.139.117
