@@ -23,3 +23,7 @@ jobs:
       - name: Traceroute
         run: |
           traceroute 179.124.139.117
+
+      - name: Testar acesso à porta com netcat
+        run: |
+          timeout 3 nc -zv 179.124.139.117 443 || echo "Porta inacessível"
