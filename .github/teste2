@@ -1,0 +1,21 @@
+name: Teste de Rota até seu IP
+
+on:
+  workflow_dispatch:
+
+jobs:
+  tracert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Instalar mtr e traceroute
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mtr traceroute
+
+      - name: MTR (My TraceRoute)
+        run: |
+          mtr -r -c 10 179.124.139.117
+
+      - name: Traceroute
+        run: |
+          traceroute 179.124.139.117
