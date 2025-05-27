@@ -9,8 +9,8 @@ jobs:
     steps:
       - name: Testar acesso HTTP ao servidor
         run: |
-          curl -I http://179.124.139.118:443 || echo "Falhou"
+          curl -I http://179.124.139.117:443 || echo "Falhou"
 
       - name: Testar acesso à porta com netcat
         run: |
-          nc -zv 179.124.139.118 443 || echo "Porta inacessível"
+          nc -zv 179.124.139.117 443 || echo "Porta inacessível"
