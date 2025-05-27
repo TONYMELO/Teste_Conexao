@@ -9,8 +9,8 @@ jobs:
     steps:
       - name: Testar acesso HTTP ao servidor
         run: |
-          curl -I http://179.124.139.117:443 || echo "Falhou"
+          curl -I --max-time 3 --connect-timeout 3 --retry 10 --retry-delay 2 --retry-max-time 30 http://179.124.139.11:443 || echo "Falhou após 10 tentativas"
 
       - name: Testar acesso à porta com netcat
         run: |
-          nc -zv 179.124.139.117 443 || echo "Porta inacessível"
+          timeout 3 nc -zv 179.124.139.117 443 || echo "Porta inacessível"
